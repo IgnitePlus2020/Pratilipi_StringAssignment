@@ -9,11 +9,17 @@ public class DigitString {
         String testString;
         System.out.print("Enter a test string:\t");
         testString = in.nextLine();
-        System.out.println("String:\t" + testString);
-        if (testString.matches("[0-9]+") && testString.length() > 2) {
-            System.out.println("String contains only digits!");
+        if (testString.length() <= 0) {
+            System.out.println("Invalid string!");
+            System.exit(0);
         } else {
-            System.out.println("String contains digits as well as other characters!");
+            System.out.println("String:\t" + testString);
+            if (testString.matches("[0-9]+"))
+                System.out.println("String contains only digits!");
+            else if (testString.matches("[a-zA-Z]+"))
+                System.out.println("String contains only alphabets!");
+            else
+                System.out.println("String contains digits as well as other characters!");
         }
     }
 }
@@ -27,4 +33,13 @@ Output 2:
 Enter a test string:	abc123
 String:	abc123
 String contains digits as well as other characters!
+
+Output 3:
+Enter a test string:
+Invalid string!
+
+Output 4:
+Enter a test string:	abc
+String:	abc
+String contains only alphabets!
  */
